@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forex Mastery by tkingbeast</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1117;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #161b22;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00ffae55;
+    }
+    h1 { color: #00ffa2; }
+    img.cover { width: 100%; border-radius: 15px; }
+    input, select, button {
+      width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px;
+      border: none; font-size: 16px;
+    }
+    button { background-color: #00ffa2; color: #000; font-weight: bold; cursor: pointer; }
+    .wallets { text-align: left; margin-top: 20px; }
+    .wallets code { background: #222; padding: 5px; display: block; margin-bottom: 10px; }
+    a { color: #00ffa2; word-break: break-word; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Forex Mastery: The 90% Winrate Blueprint</h1>
+    <p><strong>By tkingbeast</strong></p>
+    <img src="book_cover.png" alt="Book Cover" class="cover" />
+    <p>Unlock the Secrets of Consistent Profits in the Forex Market. Learn my exact strategies that helped me reach 90% winrate. Get your copy now for only <strong>$20</strong>.</p>
+
+    <form id="purchaseForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <select name="paymentMethod" required>
+        <option value="" disabled selected>Payment Method</option>
+        <option value="Binance">Binance</option>
+        <option value="BEP20">BEP20</option>
+        <option value="TRC20">TRC20</option>
+        <option value="APTOS">APTOS</option>
+      </select>
+      <button type="submit">Confirm Payment & Receive PDF</button>
+    </form>
+
+    <div class="wallets">
+      <h3>Payment Info</h3>
+      <p><a href="https://s.binance.com/y9FwAf6k" target="_blank">Pay via Binance</a></p>
+      <code>BEP20: 0xc273d209f900c4ad0a4e88d49f1561fdaea5d34d</code>
+      <code>TRC20: TKxbgcPSJZcuTB139bNQd9xVSkJcQdDZ6c</code>
+      <code>APTOS: 0xfe5b39a677bcc6cc770123c56218c34b97a0b9230855d98f375d54dac8142430</code>
+    </div>
+
+    <p>PDF password: <strong>Tking123@</strong></p>
+
+    <p>Support:
+      <a href="https://wa.me/qr/BNVYAEZINDLAC" target="_blank">WhatsApp</a> |
+      <a href="https://www.instagram.com/tking_beast" target="_blank">Instagram</a>
+    </p>
+  </div>
+
+  <script>
+    (function(){
+      emailjs.init("lDyv2ZgELVIKtEHmc");
+    })();
+
+    document.getElementById("purchaseForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = this;
+      const templateParams = {
+        name: form.name.value,
+        email: form.email.value,
+        payment_method: form.paymentMethod.value,
+        pdf_link: "https://gofile.io/d/nCppRz",
+        password: "Tking123@"
+      };
+
+      emailjs.send("service_d2nf8jz", "template_nu3w8at", templateParams)
+        .then(function() {
+          alert("PDF sent to your email. Check your inbox!");
+          form.reset();
+        }, function(error) {
+          alert("Failed to send. Try again.");
+          console.error(error);
+        });
+    });
+  </script>
+</body>
+</html>
